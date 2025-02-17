@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Interview Prep - Home</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F0F7FF; /* Soft Sky Blue */
+            overflow-x: hidden;
+        }
+        h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #0077B6; /* Ocean Blue */
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-in-out;
+        }
+        header h1 {
+            font-size: 36px;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 18px;
+            margin-top: 5px;
+            color: #f1f1f1;
+        }
+        
+        /* Navigation Styles */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #0077B6; /* Ocean Blue */
+            color: #fff;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 20px;
+            margin: 20px;
+        }
+        .intro, .services, .contact {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 40px;
+            animation: slideIn 1.5s ease-out;
+        }
+
+        .intro h2, .services h2, .contact h2 {
+            font-size: 30px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .intro p, .services p, .contact p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            text-align: center;
+        }
+        
+        .services ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+        .services li {
+            font-size: 18px;
+            padding: 10px 0;
+            transition: transform 0.3s ease;
+        }
+        .services li:hover {
+            transform: translateY(-5px);
+            color: #0077B6; /* Ocean Blue */
+        }
+
+        .contact form input, .contact form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .contact form button {
+            background-color: #0077B6; /* Ocean Blue */
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+        .contact form button:hover {
+            background-color: #005f8c; /* Darker Blue */
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Mobile Styles */
+        @media screen and (max-width: 768px) {
+            header h1 {
+                font-size: 28px;
+            }
+            header p {
+                font-size: 16px;
+            }
+            nav {
+                flex-direction: column;
+            }
+            .services ul {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to Interview Prep</h1>
+        <p>Your ultimate resource for mastering interviews</p>
+    </header>
+
+    <nav>
+        <a href="#intro">Home</a>
+        <a href="{% url 'start' %}">Begin Your Journey</a>
+        <a href="{% url 'contact' %}">Contact Us</a>  
+    </nav>
+
+    <section id="intro" class="intro">
+        <h2>About Us</h2>
+        <p>At Interview Prep, we believe in empowering job seekers with the skills and confidence to excel in any interview. Our expert resources, mock sessions, and coaching are designed to give you a competitive edge in the job market.</p>
+    </section>
+
+    <section id="services" class="services">
+        <h2>What We Offer</h2>
+        <p>Explore our wide range of services aimed at improving your interview performance:</p>
+        <ul>
+            <li>Mock Interviews with Experts</li>
+            <li>One-on-One Coaching and Feedback</li>
+            <li>Resume Optimization</li>
+            <li>Interview Strategy and Techniques</li>
+        </ul>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>If you're ready to take your interview prep to the next level, reach out to us today. We're here to help!</p>
+        <form>
+            <input type="text" placeholder="Your Name" required><br>
+            <input type="email" placeholder="Your Email" required><br>
+            <textarea placeholder="Your Message" rows="4" required></textarea><br>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Interview Prep | All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Filters - Interview Prep</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F0F7FF;
+            text-align: center;
+        }
+        header {
+            background-color: #0077B6;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #0077B6;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005f8c;
+        }
+        .results {
+            max-width: 500px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .results ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .results li {
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>Set Your Filters</header>
+    <div class="container">
+        <h2>Select Technology and Experience Level</h2>
+        <form method="GET" action="">
+            <label for="technology">Technology:</label>
+            <select id="technology" name="technology">
+                <option value="python" {% if request.GET.technology == 'python' %}selected{% endif %}>Python</option>
+                <option value="javascript" {% if request.GET.technology == 'javascript' %}selected{% endif %}>JavaScript</option>
+                <option value="java" {% if request.GET.technology == 'java' %}selected{% endif %}>Java</option>
+                <option value="react" {% if request.GET.technology == 'react' %}selected{% endif %}>React</option>
+            </select>
+            
+            <label for="experience">Experience Level:</label>
+            <select id="experience" name="experience_level">
+                <option value="beginner" {% if request.GET.experience_level == 'beginner' %}selected{% endif %}>Beginner</option>
+                <option value="intermediate" {% if request.GET.experience_level == 'intermediate' %}selected{% endif %}>Intermediate</option>
+                <option value="advanced" {% if request.GET.experience_level == 'advanced' %}selected{% endif %}>Advanced</option>
+            </select>
+            
+            <button type="submit">Find Resources</button>
+        </form>
+    </div>
+
+    {% if links %}
+    <div class="results">
+        <h2>Resources</h2>
+        <ul>
+            {% for link in links %}
+                <li><a href="{{ link.url }}" target="_blank">{{ link.url }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>  
+    {% else %}
+    <div class="container">
+        <p>No resources found.</p>
+    </div>
+    {% endif %}
+</body>
+</html>
