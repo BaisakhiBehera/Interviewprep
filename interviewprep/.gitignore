@@ -14,8 +14,6 @@ db.sqlite3
 .env
 venv/
 
-# VSCode settings
-.vscode/
 # MySQL
 *.sql
 *.db
