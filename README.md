@@ -2,7 +2,7 @@
 
 This is a simple web app that helps users with interview preparation by displaying relevant links based on the selected technology and experience level.
 
-## Tech Stack
+## Tech Stack 
 - **Backend**: Django (Python)
 - **Frontend**: JavaScript, HTML, CSS
 - **Database**: MySQL
